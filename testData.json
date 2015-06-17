@@ -1,5 +1,7 @@
-[
-  {firstName: "John", lastName: "Smith"},
-  {firstName: "Bruce", lastName: "Wayne"}
-]
+{"data": 
+  [
+    {"firstName": "John", "lastName": "Smith"},
+    {"firstName": "Bruce", "lastName": "Wayne"}
+  ]
+}
 
