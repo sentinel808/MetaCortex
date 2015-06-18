@@ -1,15 +1,23 @@
-var app = angular.module('app', []);
+var app = angular.module('app', ['ngRoute', 'trackerController', 'homeController']);
 
-app.controller('AppCtrl', ['$scope', '$http',
-  function($scope, $http) {
-    $scope.data = {key: "val"};
-    
-    $http.get('testData.json').
-      success(function(data, status, headers, config) {
-        $scope.data = data;
+app.config(['$routeProvider',
+  function($routeProvider) {
+    $routeProvider.
+      when('/', {
+        templateUrl: './app/home/home.html',
+        controller: 'HomeCtrl'
       }).
-      error(function(data, status, headers, config) {
-        
+      when('/tracker', {
+        templateUrl: './app/tracker/tracker.html',
+        controller: 'TrackerCtrl'
+      }).
+      otherwise({
+        redirectTo: '/'
       });
+  }]);
+
+
+app.controller('AppCtrl', ['$scope',
+  function($scope) {
 
   }]);

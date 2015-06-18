@@ -1,0 +1,31 @@
+<form>
+  <div class="form-group">
+    <label for="searchInput">Search</label>
+    <input type="text" id="searchInput" ng-model="searchEntries">
+  </div>
+</form>
+<table class="table">
+  <thead>
+    <tr>
+      <th ng-click="chooseSort('date')">Date
+        <span class="caret" ng-show="sortType == 'date' && !sortReverse"></span>
+        <span class="dropup" ng-show="sortType =='date' && sortReverse"><span class="caret"></span></span>
+      </th>
+      <th ng-click="chooseSort('recipient')">Recipient
+        <span class="caret" ng-show="sortType == 'recipient' && !sortReverse"></span>
+        <span class="dropup" ng-show="sortType =='recipient' && sortReverse"><span class="caret"></span></span>
+      </th>
+      <th ng-click="chooseSort('item.name')">Item
+        <span class="caret" ng-show="sortType == 'item.name' && !sortReverse"></span>
+        <span class="dropup" ng-show="sortType =='item.name' && sortReverse"><span class="caret"></span></span>            
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="entry in data | orderBy:sortType:sortReverse | filter:searchEntries">
+      <td>{{entry.date}}</td>
+      <td>{{entry.recipient}}</td>
+      <td><a ng-href="http://wod.wowhead.com/item={{entry.item.id}}" rel="bonus={{entry.item.bonuses.join(':')}}">{{entry.item.name}}</a></td>
+    </tr>
+  </tbody>
+</table>
