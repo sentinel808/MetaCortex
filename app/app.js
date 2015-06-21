@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngRoute', 'trackerController', 'homeController']);
+var app = angular.module('app', ['ngRoute', 'trackerController', 'homeController', 'builderController']);
 
 app.config(['$routeProvider',
   function($routeProvider) {
@@ -11,6 +11,10 @@ app.config(['$routeProvider',
         templateUrl: './app/tracker/tracker.html',
         controller: 'TrackerCtrl'
       }).
+      when('/entryBuilder', {
+        templateUrl: './app/entryBuilder/builder.html',
+        controller: 'BuilderCtrl'
+      }).      
       otherwise({
         redirectTo: '/'
       });

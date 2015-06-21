@@ -1,0 +1,80 @@
+<div>
+  <form ng-submit="buildEntry()">
+    <div class="row">
+      <div class="form-group col-md-2">
+        <label for="dateInput">Date</label>
+        <input type="date" class="form-control" id="dateInput" placeholder="Date" ng-model="entry.date"/>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="recipientInput">Recipient</label>
+        <input type="text" class="form-control" id="recipientInput" placeholder="Recipient" ng-model="entry.recipient"/>
+      </div>
+      <div class="form-group col-md-2">
+        <label>Raid Difficulty</label>
+        <select class="form-control" ng-model="entry.item.difficulty">
+          <option value="normal">Normal</option>
+          <option value="heroic">Heroic</option>
+          <option value="mythic">Mythic</option>
+        </select>
+      </div>    
+      <div class="form-group col-md-2">
+        <label for="itemIdInput">Item ID</label>
+        <input type="number" class="form-control" id="itemIdInput" placeholder="Item ID" ng-model="entry.item.id"/>
+      </div>    
+      <div class="form-group col-md-3">
+        <label for="itemNameInput">Item Name</label>
+        <input type="text" class="form-control" id="itemNameInput" placeholder="Item Name" ng-model="entry.item.name"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <label>Bonuses</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <label class="checkbox-inline">
+          <input type="checkbox" value="" ng-model="entry.item.isWarforged"/>
+          Warforged
+        </label>
+      </div>
+      <div class="col-md-2">
+        <label class="checkbox-inline">
+          <input type="checkbox" value="" ng-model="entry.item.hasExtraSocket"/>
+          Extra Socket
+        </label>
+      </div>
+      <div class="col-md-2">
+        <label class="checkbox-inline">
+          <input type="checkbox" value="" ng-model="entry.item.hasAvoidance"/>
+          Avoidance
+        </label>
+      </div>
+      <div class="col-md-2">
+        <label class="checkbox-inline">
+          <input type="checkbox" value="" ng-model="entry.item.hasLeech"/>
+          Leech
+        </label>
+      </div>
+      <div class="col-md-2">
+        <label class="checkbox-inline">
+          <input type="checkbox" value="" ng-model="entry.item.hasSpeed"/>
+          Speed
+        </label>
+      </div>
+      <div class="col-md-2">
+        <label class="checkbox-inline">
+          <input type="checkbox" value="" ng-model="entry.item.isIndestructible"/>
+          Indestructible
+        </label>
+      </div>
+    </div>
+    <div id="submitEntryRow" class="row">
+      <div class="col-md-12">
+        <button type="submit" class="btn btn-primary center-block">Submit</button>
+      </div>
+    </div>
+  </form>
+  <hr>
+  <pre>{{entry | json}}</pre>
+</div>
